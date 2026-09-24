@@ -24,184 +24,113 @@
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ngopi bulanan  - Undangan</title>
+<title>ngopi bulanan - Undangan</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#F8F1E2;font-family:'Plus Jakarta Sans',sans-serif;color:#2B1E14;display:flex;justify-content:center;padding:20px}
-  .wrap{width:100%;max-width:460px}
-  .card{background:#FFFBF0;border:1px solid #F0E2C5;border-radius:28px;padding:28px;box-shadow:0 14px 50px rgba(60,36,21,.09);margin-bottom:16px;position:relative;overflow:hidden}
-  .badge{display:inline-block;background:#2B1E14;color:#FFD28A;font-size:10px;letter-spacing:.15em;font-weight:800;padding:6px 14px;border-radius:100px;margin-bottom:16px;font-family:'Outfit'}
-  h1{font-family:'Outfit';font-size:44px;font-weight:800;line-height:.9;letter-spacing:-.03em}
-  h1 span{display:block;color:#A07A4A}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-  .info{background:#FFFDF7;border:1px solid #F2E8D3;border-radius:20px;padding:16px 18px}
-  .info label{font-size:10px;letter-spacing:.14em;color:#A68662;font-weight:800;display:block;margin-bottom:6px}
-  .info b{font-family:'Outfit';font-size:16px;display:block}
-  .info small{font-size:12px;color:#8C6A4A;margin-top:4px;display:block}
-  .tempat{grid-column:1 / -1;cursor:pointer;transition:.2s;background:linear-gradient(135deg,#FFFBF0,#FFF2D6)}
-  .tempat:hover{transform:translateY(-2px);border-color:#2B1E14;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-  .tempat b{font-size:19px}
-  .map-hint{margin-top:8px;font-size:11px;font-weight:700;background:#2B1E14;color:#FFD28A;display:inline-flex;padding:4px 10px;border-radius:100px}
-  input{width:100%;height:48px;border-radius:100px;border:1px solid #F0DDBD;background:#FFFBF0;padding:0 18px 0 42px;font-size:14px;outline:none}
-  input:focus{border-color:#2B1E14;background:#fff}
-  .btn{height:50px;border-radius:100px;border:none;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s;width:100%}
-  .btn-dark{background:#2B1E14;color:#fff}
-  .btn-dark:active{transform:scale(.98)}
-  .btn-light{background:#fff;border:1px solid #E8D5B7;color:#6B4A35}
-  .list{margin-top:18px;max-height:260px;overflow-y:auto}
-  .item{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:16px;border:1px solid #F0DDBD;background:#FFFBF0;margin-bottom:8px}
-  .ava{width:32px;height:32px;border-radius:50%;background:#2B1E14;color:#FFD28A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
-  .share{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
-  .wa{background:#25D366;color:#fff;border-radius:100px;height:44px;border:none;font-weight:600;cursor:pointer}
-  .copy{background:#fff;border:1px solid #E8D5B7;border-radius:100px;height:44px;font-weight:600;cursor:pointer}
-
-  /* TOMBOL PEMBUKA - STYLE SAMA KAYA CARD KAMU */
-  #gate{position:fixed;inset:0;z-index:9999;background:#F8F1E2;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .4s ease}
-  #gate.hide{opacity:0;pointer-events:none}
+*{margin:0;padding:0;box-sizing:border-box}body{background:#F8F1E2;font-family:'Plus Jakarta Sans',sans-serif;color:#2B1E14;display:flex;justify-content:center;padding:20px}.wrap{width:100%;max-width:460px}.card{background:#FFFBF0;border:1px solid #F0E2C5;border-radius:28px;padding:28px;box-shadow:0 14px 50px rgba(60,36,21,.09);margin-bottom:16px;position:relative;overflow:hidden}.badge{display:inline-block;background:#2B1E14;color:#FFD28A;font-size:10px;letter-spacing:.15em;font-weight:800;padding:6px 14px;border-radius:100px;margin-bottom:16px;font-family:'Outfit'}h1{font-family:'Outfit';font-size:44px;font-weight:800;line-height:.9;letter-spacing:-.03em}h1 span{display:block;color:#A07A4A}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.info{background:#FFFDF7;border:1px solid #F2E8D3;border-radius:20px;padding:16px 18px}.info label{font-size:10px;letter-spacing:.14em;color:#A68662;font-weight:800;display:block;margin-bottom:6px}.info b{font-family:'Outfit';font-size:16px;display:block}.tempat{grid-column:1 / -1;cursor:pointer;transition:.2s;background:linear-gradient(135deg,#FFFBF0,#FFF2D6)}.tempat b{font-size:19px}.map-hint{margin-top:8px;font-size:11px;font-weight:700;background:#2B1E14;color:#FFD28A;display:inline-flex;padding:4px 10px;border-radius:100px}input{width:100%;height:48px;border-radius:100px;border:1px solid #F0DDBD;background:#FFFBF0;padding:0 18px 0 42px;font-size:14px;outline:none}.btn{height:50px;border-radius:100px;border:none;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s;width:100%}.btn-dark{background:#2B1E14;color:#fff}.btn-light{background:#fff;border:1px solid #E8D5B7;color:#6B4A35}.list{margin-top:18px;max-height:260px;overflow-y:auto}.item{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:16px;border:1px solid #F0DDBD;background:#FFFBF0;margin-bottom:8px}.ava{width:32px;height:32px;border-radius:50%;background:#2B1E14;color:#FFD28A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}#gate{position:fixed;inset:0;z-index:9999;background:#F8F1E2;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .4s ease}#gate.hide{opacity:0;pointer-events:none}
 </style>
 </head>
 <body>
-
-<!-- AUDIO TANPA AUTOPLAY, AKAN DIPICU TOMBOL -->
-<audio id="bgMusic" loop preload="auto" playsinline>
-  <source src="kopi.mp3" type="audio/mpeg">
-</audio>
-
-<!-- INI TOMBOL YANG KAMU MINTA - TIDAK MERUBAH TAMPILAN DALAM -->
-<div id="gate">
-  <div class="card" style="max-width:460px;width:100%;text-align:center">
-    <div class="badge">undangan ngopi</div>
-    <h1 style="font-size:36px;margin-bottom:8px">WAYAE <span>NGOPI!</span></h1>
-    <p style="font-size:13px;color:#8C6A4A;margin:12px 0 20px;line-height:1.5"> </p>
-    <button class="btn btn-dark" onclick="bukaUndangan()">☕ Buka Undangan</button>
-    <div style="margin-top:10px;font-size:11px;color:#A68662"> </div>
-  </div>
-</div>
-
+<audio id="bgMusic" loop preload="auto" playsinline><source src="kopi.mp3" type="audio/mpeg"></audio>
+<div id="gate"><div class="card" style="max-width:460px;width:100%;text-align:center"><div class="badge">undangan ngopi</div><h1 style="font-size:36px">WAYAE <span>NGOPI!</span></h1><button class="btn btn-dark" onclick="bukaUndangan()" style="margin-top:20px">☕ Buka Undangan</button></div></div>
 <div class="wrap">
-  <div class="card">
-    <div class="badge">UNDANGAN NGOPI</div>
-    <h1>WAYAE <span>NGOPI!</span></h1>
-    <div class="grid">
-      <div class="info">
-        <label>HARI & TANGGAL</label>
-        <b>Minggu, 4 Oktober 2026</b>
-      </div>
-      <div class="info">
-        <label>JAM</label>
-        <b>09:00 pagi - Sampek kesel</b>
-      </div>
-      <div class="info tempat" onclick="window.open('https://maps.app.goo.gl/NUmVTeP9RtSsc8HM7','_blank')">
-        <label>TEMPAT 📍</label>
-        <b>KLIK DISINI UNTUK MENGETAHUI LOKASI NGOPI</b>
-        <small> </small>
-        <div class="map-hint">Buka Maps ↗</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <b style="font-family:'Outfit';font-size:20px">Mau ikut?</b>
-      <span id="count" style="font-size:11px;background:#F5E6C8;padding:4px 10px;border-radius:100px">0 GAS</span>
-    </div>
-    <div style="position:relative;margin-bottom:12px">
-      <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%)">👤</span>
-      <input id="nameInput" placeholder="Namamu siapa?" onkeydown="if(event.key==='Enter') gas('ikut')">
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <button class="btn btn-dark" onclick="gas('ikut')">🔥 Gas Ikut!</button>
-      <button class="btn btn-light" onclick="gas('skip')">Skip Dulu</button>
-    </div>
-    <div id="list" class="list"></div>
-    <div class="share">
-      <button class="wa" onclick="shareWA()">Share WA</button>
-      <button class="copy" id="copyBtn" onclick="copyLink()">Copy Link</button>
-    </div>
-  </div>
+<div class="card"><div class="badge">UNDANGAN NGOPI</div><h1>WAYAE <span>NGOPI!</span></h1><div class="grid"><div class="info"><label>HARI & TANGGAL</label><b>Minggu, 4 Oktober 2026</b></div><div class="info"><label>JAM</label><b>09:00 pagi - Sampek kesel</b></div><div class="info tempat" onclick="window.open('https://maps.app.goo.gl/NUmVTeP9RtSsc8HM7','_blank')"><label>TEMPAT 📍</label><b>KLIK DISINI UNTUK MENGETAHUI LOKASI NGOPI</b><div class="map-hint">Buka Maps ↗</div></div></div></div>
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b style="font-family:'Outfit';font-size:20px">Mau ikut?</b><span id="count" style="font-size:11px;background:#F5E6C8;padding:4px 10px;border-radius:100px">0 GAS</span></div>
+<div style="position:relative;margin-bottom:12px"><span style="position:absolute;left:16px;top:50%;transform:translateY(-50%)">👤</span><input id="nameInput" placeholder="Namamu siapa?" onkeydown="if(event.key==='Enter') gas('ikut')"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><button class="btn btn-dark" onclick="gas('ikut')">🔥 Gas Ikut!</button><button class="btn btn-light" onclick="gas('skip')">Skip Dulu</button></div>
+<div id="list" class="list"><div style="text-align:center;padding:20px;color:#A68662;font-size:13px">Memuat daftar absen...</div></div>
+<div style="margin-top:10px;font-size:10px;color:#A68662;text-align:center">Data tersimpan online, otomatis hilang setelah 14 hari</div>
 </div>
-
+</div>
 <script>
+// ENDPOINT KAMU - UDAH AKTIF
+const ENDPOINT = 'https://crudcrud.com/api/2d5d89e17f7046f195b7531957893b72';
+const RESOURCE = 'ngopi';
+const FOURTEEN_DAYS_MS = 14*24*60*60*1000;
+
 const listEl = document.getElementById('list');
-const nameInput = document.getElementById('nameInput');
 const countEl = document.getElementById('count');
+const nameInput = document.getElementById('nameInput');
+let rsvps = [];
 
-// ==== LOGIKA 14 HARI - TIDAK MERUBAH TAMPILAN ====
-const STORAGE_KEY = 'ngopi-rsvp-14hari';
-const FOURTEEN_DAYS_MS = 14 * 24 * 60 * 60 * 1000;
-
-function loadRsvps(){
+async function loadRsvps(){
   try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw){
-      // data awal jika belum ada penyimpanan - dikasih timestamp sekarang
-      return [
-        {name:'paijo', status:'ikut', ts: Date.now()},
-        {name:'bejan', status:'ikut', ts: Date.now()}
-      ];
-    }
-    const parsed = JSON.parse(raw);
+    const res = await fetch(`${ENDPOINT}/${RESOURCE}`);
+    if(!res.ok) throw new Error('load gagal');
+    let data = await res.json();
     const now = Date.now();
-    // filter yang sudah lewat 14 hari
-    const filtered = parsed.filter(r => r.ts && (now - r.ts) < FOURTEEN_DAYS_MS);
-    // jika ada yang terfilter, simpan ulang
-    if(filtered.length !== parsed.length){
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
+    // filter 14 hari
+    const valid = data.filter(r => r.ts && (now - r.ts) < FOURTEEN_DAYS_MS);
+    const expired = data.filter(r => !r.ts || (now - r.ts) >= FOURTEEN_DAYS_MS);
+    
+    // hapus yang expired di server
+    for(let item of expired){
+      if(item._id) await fetch(`${ENDPOINT}/${RESOURCE}/${item._id}`, {method:'DELETE'}).catch(()=>{});
     }
-    return filtered;
+    
+    rsvps = valid;
+    // kalau kosong, kasih default paijo & bejan sekali saja
+    if(rsvps.length === 0){
+      await gasSilent('paijo','ikut');
+      await gasSilent('bejan','ikut');
+      const res2 = await fetch(`${ENDPOINT}/${RESOURCE}`);
+      rsvps = await res2.json();
+    }
   }catch(e){
-    return [{name:'paijo',status:'ikut', ts: Date.now()},{name:'bejan',status:'ikut', ts: Date.now()}];
+    // fallback lokal kalau API error
+    const raw = localStorage.getItem('ngopi-rsvp-14hari');
+    rsvps = raw ? JSON.parse(raw).filter(r => (Date.now() - r.ts) < FOURTEEN_DAYS_MS) : [];
   }
-}
-
-function saveRsvps(){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(rsvps));
-}
-
-let rsvps = loadRsvps();
-
-function render(){
-  // bersihkan lagi yang expired saat render untuk jaga-jaga
-  const now = Date.now();
-  rsvps = rsvps.filter(r => (now - r.ts) < FOURTEEN_DAYS_MS);
-  saveRsvps();
-
-  listEl.innerHTML = rsvps.map(r=>`<div class="item"><div class="ava">${r.name[0].toUpperCase()}</div><div style="flex:1"><b style="font-size:14px">${r.name}</b><br><small style="color:#A68662">${r.status==='ikut'?'Siap ngopi bareng!':'Next time ya'}</small></div><div>${r.status==='ikut'?'☕':'💤'}</div></div>`).join('');
-  countEl.textContent = rsvps.filter(r=>r.status==='ikut').length + ' GAS';
-}
-
-function gas(status){
-  let name = nameInput.value.trim() || 'Teman Ngopi';
-  rsvps.unshift({name, status, ts: Date.now()}); 
-  nameInput.value=''; 
-  saveRsvps();
   render();
 }
 
-function shareWA(){
-  const text = `Agenda Ngopi Bulanan! ☕\n\n*ngopi bulanan*\nSelasa, 22 September 2026 - 21:00 Sampek kesel\nLokasi: https://maps.app.goo.gl/wjD2KhjoGyGvQa6j6\n\nGas ikut?`;
-  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
+async function gasSilent(name,status){
+  try{
+    await fetch(`${ENDPOINT}/${RESOURCE}`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({name, status, ts: Date.now()})
+    });
+  }catch(e){}
 }
-function copyLink(){
-  navigator.clipboard.writeText(window.location.href);
-  const btn=document.getElementById('copyBtn'); btn.textContent='✓ Tersalin'; setTimeout(()=>btn.textContent='Copy Link',2000);
-}
-render();
 
-// FUNGSI PEMICU MUSIK
+async function gas(status){
+  const name = nameInput.value.trim() || 'Teman Ngopi';
+  nameInput.value='';
+  listEl.innerHTML = '<div style="text-align:center;padding:20px;color:#A68662">Menyimpan...</div>';
+  try{
+    await fetch(`${ENDPOINT}/${RESOURCE}`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({name, status, ts: Date.now()})
+    });
+    await loadRsvps();
+  }catch(e){
+    // fallback lokal
+    rsvps.unshift({name, status, ts: Date.now()});
+    localStorage.setItem('ngopi-rsvp-14hari', JSON.stringify(rsvps));
+    render();
+  }
+}
+
+function render(){
+  const now = Date.now();
+  rsvps = rsvps.filter(r => (now - r.ts) < FOURTEEN_DAYS_MS);
+  if(!rsvps.length){
+    listEl.innerHTML = '<div style="text-align:center;padding:20px;color:#A68662">Belum ada yang absen</div>';
+  }else{
+    // urutkan terbaru di atas
+    rsvps.sort((a,b)=>b.ts - a.ts);
+    listEl.innerHTML = rsvps.map(r=>`<div class="item"><div class="ava">${r.name[0].toUpperCase()}</div><div style="flex:1"><b style="font-size:14px">${r.name}</b><br><small style="color:#A68662">${r.status==='ikut'?'Siap ngopi bareng!':'Next time ya'}</small></div><div>${r.status==='ikut'?'☕':'💤'}</div></div>`).join('');
+  }
+  countEl.textContent = rsvps.filter(r=>r.status==='ikut').length + ' GAS';
+}
+
+loadRsvps();
 const audio = document.getElementById('bgMusic');
 const gate = document.getElementById('gate');
-audio.volume = 0.5;
-
-function bukaUndangan(){
-  audio.play().then(()=>{
-    gate.classList.add('hide');
-    setTimeout(()=> gate.style.display='none', 400);
-  }).catch(()=>{
-    alert('File kopi.mp3 tidak ketemu, cek lagi di repo kamu!');
-  });
-}
+function bukaUndangan(){ audio.play().catch(()=>{}); gate.classList.add('hide'); setTimeout(()=>gate.style.display='none',400); }
 </script>
 <script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
